@@ -1,5 +1,11 @@
+from bs4 import BeautifulSoup
 import nltk
-with open('texto.txt', 'r') as arq:
-    tokens = nltk.word_tokenize(arq.read())
+import codecs
+
+
+with codecs.open('index.html', 'r') as arq:
+    html = arq.read()
+    soup = BeautifulSoup(html, 'lxml')
+    tokens = nltk.word_tokenize(soup.get_text())
     print(tokens)
 
