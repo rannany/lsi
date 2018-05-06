@@ -1,5 +1,6 @@
 from sqlalchemy.orm import sessionmaker
 from models import Document, Word
+from document import Document
 from sqlalchemy import create_engine
 import datetime
 
@@ -16,8 +17,14 @@ class DocumentController:
         self.session = Session()
 
     def getAll(self):
+        doc = []
         for instances in self.session.query(Document).order_by(Document.id):
-            print(instances.title)
+            doc.append(Document(
+                title=instances.title,
+                url=instances.url,
+                words=instances.words
+            ))
+        return doc
 
     def store(self, payload):
         self.doc.title = payload.title
