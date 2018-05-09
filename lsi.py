@@ -3,9 +3,9 @@ from abc import ABCMeta, abstractmethod
 
 class DocumentAbstract(metaclass=ABCMeta):
 
-    """recebe path, que é o caminha para o documento """
+    """recebe path, que é o caminha para o documento
     def __init__(self, path):
-        pass
+        pass"""
 
     """ deve retornar um lista com todas as palavras encontradas"""
     @abstractmethod
